@@ -1,1 +1,1 @@
-# gromacs_on_windows
+# gromacs 22.4 gpu windows
