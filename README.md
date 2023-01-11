@@ -19,12 +19,16 @@ cmake --build . --target INSTALL --config Release
 B. compile the gmx
 
 tar xfz gromacs-2022.4.tar.gz
+
 cd gromacs-2022.4
+
 mkdir build
+
 cd build
+
 cmake .. -DCMAKE_INSTALL_PREFIX=XXX -DGMX_FFT_LIBRARY=fftw3 -DCMAKE_PREFIX_PATH=XXX -G "Visual Studio 17 2022" -DGMX_GPU=CUDA -DCUDA_TOOLKIT_ROOT_DIR=XXX -DCMAKE_BUILD_TYPE=Release
 
-! open the gromacs.sln in vs2022
+! open the gromacs.sln in VS 2022
 
 ! manually setting the environment to x64 release (active).
 
