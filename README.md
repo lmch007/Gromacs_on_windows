@@ -1,4 +1,4 @@
-# gromacs 2022.4 gpu windows
+# Gromacs 2022.4 GPU Windows
 
 A pre-built native version of GROMACS 2022.4 gpu for windows system useres.
 
