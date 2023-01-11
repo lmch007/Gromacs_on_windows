@@ -36,12 +36,16 @@ cmake .. -DCMAKE_INSTALL_PREFIX=XXX -DGMX_FFT_LIBRARY=fftw3 -DCMAKE_PREFIX_PATH=
 
 cmake --build . --target INSTALL --config Release
 
+or right click INSTALL and click generate.
+
+All done. Enjoy it.
+
 #######################################
 
-Several source code are modified to pass the check of MSVC compiler.
+WARNING: Several source code are modified to pass the check of MSVC compiler.
 
 Including C++17 to CUDA17, error link 2038, some brackets, some header files, blablala ...
 
-For test ONLY.
+Please used with caution.
 
 And welcome to report benchmark tests or bugs.
