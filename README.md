@@ -1,6 +1,6 @@
-# gromacs 22.4 gpu windows
+# gromacs 2022.4 gpu windows
 
-A pre-compiled GROMACS 2022.4 for windows system useres.
+A pre-built native version of GROMACS 2022.4 gpu for windows system useres.
 
 Compiled by MSVC 17 2022 cmake with nVidia CUDA toolkit 11.8 & fftw 3.3.10
 
