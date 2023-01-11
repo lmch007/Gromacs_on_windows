@@ -25,7 +25,9 @@ cmake .. -DCMAKE_INSTALL_PREFIX=XXX -DGMX_FFT_LIBRARY=fftw3 -DCMAKE_PREFIX_PATH=
 
 ! open the gromacs.sln in vs2022
 
-! changes all of C++ fils from MD to MT.
+! manually setting the environment to x64 release (active).
+
+! changes all setting of C++ files from MD to MT.
 
 cmake --build . --target INSTALL --config Release
 
