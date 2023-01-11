@@ -10,13 +10,13 @@ Compile method is quite simple
 
 Install VS 2022 community and open the 'x64 Native Tools Command Prompt for VS 2022.'
 
-A. comile fftw 3.3.10
+A. compile fftw 3.3.10
 
 cmake . -DCMAKE_INSTALL_PREFIX=XXX -DENABLE_SSE2=ON -DENABLE_AVX=ON -DENABLE_AVX2=ON -DENABLE_AVX512=ON -DENABLE_FLOAT=ON -DBUILD_SHARED_LIBS=ON -G "Visual Studio 17 2022"
 
 cmake --build . --target INSTALL --config Release
 
-B. compile the gmx
+B. compile gmx 2022.4
 
 tar xfz gromacs-2022.4.tar.gz
 
