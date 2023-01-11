@@ -36,7 +36,7 @@ cmake .. -DCMAKE_INSTALL_PREFIX=XXX -DGMX_FFT_LIBRARY=fftw3 -DCMAKE_PREFIX_PATH=
 
 cmake --build . --target INSTALL --config Release
 
-or right click INSTALL and click generate.
+! or right click INSTALL and click generate.
 
 All done. Enjoy it.
 
