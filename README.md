@@ -8,7 +8,7 @@ Compiled by MSVC 17 2022 cmake with nVidia CUDA toolkit 11.8 & fftw 3.3.10
 
  The compilation method is quite simple: 
 
-Install VS 2022 Community and open the **x64 Native Tools Command Prompt for VS 2022**.
+Install VS 2022 Community and open the '**x64 Native Tools Command Prompt for VS 2022**.'
 
 *A. Compile fftw 3.3.10*
 ```
