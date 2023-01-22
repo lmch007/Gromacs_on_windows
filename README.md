@@ -11,11 +11,11 @@ Compiled by MSVC 17 2022 cmake with nVidia CUDA toolkit 11.8 & fftw 3.3.10
 Install VS 2022 Community and open the 'x64 Native Tools Command Prompt for VS 2022.'
 
 A. Compile fftw 3.3.10
-
+```
 cmake . -DCMAKE_INSTALL_PREFIX=XXX -DENABLE_SSE2=ON -DENABLE_AVX=ON -DENABLE_AVX2=ON -DENABLE_AVX512=ON -DENABLE_FLOAT=ON -DBUILD_SHARED_LIBS=ON -G "Visual Studio 17 2022"
 
 cmake --build . --target INSTALL --config Release
-
+```
 B. Compile gmx 2022.4
 ```
 tar xfz gromacs-2022.4.tar.gz
@@ -33,9 +33,9 @@ cmake .. -DCMAKE_INSTALL_PREFIX=XXX -DGMX_FFT_LIBRARY=fftw3 -DCMAKE_PREFIX_PATH=
 ! manually set the environment to x64 release (active).
 
 ! change all setting of C++ files settings from MD to MT.
-
+```
 cmake --build . --target INSTALL --config Release
-
+```
 ! or right click INSTALL and click generate.
 
 All done. Enjoy it.
