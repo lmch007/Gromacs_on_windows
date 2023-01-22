@@ -43,7 +43,7 @@ All done. Enjoy it.
 
 #######################################
 
-**WARNING: To pass the MSVC compiler check, some code is changed.**
+**WARNING: To pass the MSVC compiler check, _some code is changed_.**
 
 Including C++17 to CUDA17, error link 2038, some brackets, some header files, blablala ...
 
