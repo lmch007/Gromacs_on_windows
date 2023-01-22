@@ -29,7 +29,7 @@ cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=XXX -DGMX_FFT_LIBRARY=fftw3 -DCMAKE_PREFIX_PATH=XXX -G "Visual Studio 17 2022" -DGMX_GPU=CUDA -DCUDA_TOOLKIT_ROOT_DIR=XXX -DCMAKE_BUILD_TYPE=Release
 ```
 
-*C.Open the gromacs.sln in VS 2022*
+*C. Open the gromacs.sln in VS 2022*
 
 manually set the environment to x64 release (active).
 
