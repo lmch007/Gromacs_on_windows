@@ -1,4 +1,4 @@
-# Gromacs 2022.4 GPU Windows
+# Gromacs 2022.6 GPU Windows
 
 **A pre-built native version of GROMACS 2022.4 GPU for Windows system users.**
 
@@ -16,11 +16,11 @@ cmake . -DCMAKE_INSTALL_PREFIX=XXX -DENABLE_SSE2=ON -DENABLE_AVX=ON -DENABLE_AVX
 
 cmake --build . --target INSTALL --config Release
 ```
-*B. Compile gmx 2022.4*
+*B. Compile gmx 2022.6*
 ```
-tar xfz gromacs-2022.4.tar.gz
+tar xfz gromacs-2022.6.tar.gz
 
-cd gromacs-2022.4
+cd gromacs-2022.6
 
 mkdir build
 
