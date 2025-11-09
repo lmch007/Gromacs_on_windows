@@ -18,7 +18,7 @@ cmake --build . --target INSTALL --config Release
 
 **WARNING: To pass the MSVC compiler check, _some code is changed_.**
 
-1.     ./cmake/gmxManageNvccConfig.cmake
+1\.     ./cmake/gmxManageNvccConfig.cmake
 
 ```diff
 -list(APPEND GMX_CUDA_NVCC_FLAGS "${CMAKE_CXX17_STANDARD_COMPILE_OPTION}")
@@ -30,7 +30,7 @@ then
 +gmx_add_nvcc_flag_if_supported(GMX_CUDA_NVCC_FLAGS NVCC_HAS_USE_FAST_MATH -use_fast_math -std=c++17)
 ```
 
-2.    ./CMakeLists.txt
+2\.    ./CMakeLists.txt
 
 In the first line (you can below the annotation)
 
@@ -40,7 +40,7 @@ In the first line (you can below the annotation)
 +cmake_policy(SET CMP0091 NEW)
 ```
 Then, under 
-```
+```cmake
 project(Gromacs VERSION 2024.6)
 ```
 add
