@@ -29,9 +29,11 @@ then
 -gmx_add_nvcc_flag_if_supported(GMX_CUDA_NVCC_FLAGS NVCC_HAS_USE_FAST_MATH -use_fast_math)
 +gmx_add_nvcc_flag_if_supported(GMX_CUDA_NVCC_FLAGS NVCC_HAS_USE_FAST_MATH -use_fast_math -std=c++17)
 ```
+
 2.    ./CMakeLists.txt
 
-In the first line (you can below the annotation )
+In the first line (you can below the annotation)
+
 ```diff
 +set(CMAKE_POLICY_DEFAULT_CMP0091 NEW)
 +set(CMAKE_POLICY_DEFAULT_CMP NEW)
@@ -66,7 +68,6 @@ cmake .. -DCMAKE_INSTALL_PREFIX="XXX" -DGMX_FFT_LIBRARY=fftw3 -DCMAKE_PREFIX_PAT
 
 cmake --build . --target INSTALL --config Release
 ```
-
 
 All done. Enjoy it.
 
