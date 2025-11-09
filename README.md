@@ -1,4 +1,6 @@
 # Gromacs 2024.6 GPU Windows
+[⬇️ Download (Latest Release)](https://github.com/iriscite/Gromacs_on_windows/releases/latest)
+
 
 **A pre-built native version of GROMACS 2024.6 GPU for Windows system users.**
 
