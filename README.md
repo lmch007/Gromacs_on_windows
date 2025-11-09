@@ -59,11 +59,8 @@ The compilation method is quite simple:
 ```
 tar -xvzf gromacs-2024.6.tar.gz
 
-cd gromacs-2024.6
+cd gromacs-2024.6 && mkdir build && cd build
 
-mkdir build
-
-cd build
 cmake .. -DCMAKE_INSTALL_PREFIX="XXX" -DGMX_FFT_LIBRARY=fftw3 -DCMAKE_PREFIX_PATH="XXX" -G "Visual Studio 17 2022" -DGMX_SIMD=AVX2_256 -DGMX_GPU=CUDA -DCUDA_TOOLKIT_ROOT_DIR="XXX" -DCMAKE_BUILD_TYPE=Release
 
 cmake --build . --target INSTALL --config Release
