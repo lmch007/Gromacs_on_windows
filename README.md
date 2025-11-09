@@ -17,7 +17,9 @@ cmake . -DCMAKE_INSTALL_PREFIX=XXX -DENABLE_SSE2=ON -DENABLE_AVX=ON -DENABLE_AVX
 cmake --build . --target INSTALL --config Release
 ```
 *B. Modif the source code
+
 **WARNING: To pass the MSVC compiler check, _some code is changed_.**
+
 1.  ./cmake/gmxManageNvccConfig.cmake
 
 ```diff
