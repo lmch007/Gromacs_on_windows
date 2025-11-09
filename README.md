@@ -1,6 +1,6 @@
-# Gromacs 2022.6 GPU Windows
+# Gromacs 2024.6 GPU Windows
 
-**A pre-built native version of GROMACS 2022.4 GPU for Windows system users.**
+**A pre-built native version of GROMACS 2024.6 GPU for Windows system users.**
 
 Compiled by MSVC 17 2022 cmake with nVidia CUDA toolkit 11.8 & fftw 3.3.10
 
@@ -16,28 +16,53 @@ cmake . -DCMAKE_INSTALL_PREFIX=XXX -DENABLE_SSE2=ON -DENABLE_AVX=ON -DENABLE_AVX
 
 cmake --build . --target INSTALL --config Release
 ```
-*B. Compile gmx 2022.6*
-```
-tar xfz gromacs-2022.6.tar.gz
+*B. Modif the source code
+**WARNING: To pass the MSVC compiler check, _some code is changed_.**
+1.  ./cmake/gmxManageNvccConfig.cmake
 
-cd gromacs-2022.6
+```
+-list(APPEND GMX_CUDA_NVCC_FLAGS "${CMAKE_CXX17_STANDARD_COMPILE_OPTION}")
++list(APPEND GMX_CUDA_NVCC_FLAGS "${CMAKE_CUDA17_STANDARD_COMPILE_OPTION}")
+```
+then
+```
+-gmx_add_nvcc_flag_if_supported(GMX_CUDA_NVCC_FLAGS NVCC_HAS_USE_FAST_MATH -use_fast_math)
++gmx_add_nvcc_flag_if_supported(GMX_CUDA_NVCC_FLAGS NVCC_HAS_USE_FAST_MATH -use_fast_math -std=c++17)
+```
+2. ./Cmakelist
+In the first line (you can below the annotation )
+```
+set(CMAKE_POLICY_DEFAULT_CMP0091 NEW)
+set(CMAKE_POLICY_DEFAULT_CMP NEW)
+cmake_policy(SET CMP0091 NEW)
+```
+Then， under 
+```
+project(Gromacs VERSION 2024.6)
+```
+add
+```
+if(MSVC)
+    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    string(REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
+    string(REPLACE "/MDd" "/MTd" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
+endif()
+```
+
+*C. Compile gmx 2024.6*
+```
+tar xfz gromacs-2024.6.tar.gz
+
+cd gromacs-2024.6
 
 mkdir build
 
 cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=XXX -DGMX_FFT_LIBRARY=fftw3 -DCMAKE_PREFIX_PATH=XXX -G "Visual Studio 17 2022" -DGMX_SIMD=AVX2_256 -DGMX_GPU=CUDA -DCUDA_TOOLKIT_ROOT_DIR=XXX -DCMAKE_BUILD_TYPE=Release
 
-cmake .. -DCMAKE_INSTALL_PREFIX=XXX -DGMX_FFT_LIBRARY=fftw3 -DCMAKE_PREFIX_PATH=XXX -G "Visual Studio 17 2022" -DGMX_GPU=CUDA -DCUDA_TOOLKIT_ROOT_DIR=XXX -DCMAKE_BUILD_TYPE=Release
-```
-
-*C. Open the gromacs.sln in VS 2022*
-
-manually set the environment to x64 release (active).
-
-change all setting of C++ files settings from MD to MT.
-```
 cmake --build . --target INSTALL --config Release
 ```
-or right click INSTALL and click generate.
+
 
 All done. Enjoy it.
 
@@ -45,8 +70,9 @@ All done. Enjoy it.
 
 **WARNING: To pass the MSVC compiler check, _some code is changed_.**
 
-Including C++17 to CUDA17, error link 2038, some brackets, some header files, blablala ...
-
 **Please use with caution.**
 
 And feel free to report benchmark tests or bugs.
+**Reference: http://bbs.keinsci.com/thread-37179-1-1.html **
+
+
