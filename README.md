@@ -20,21 +20,21 @@ cmake --build . --target INSTALL --config Release
 **WARNING: To pass the MSVC compiler check, _some code is changed_.**
 1.  ./cmake/gmxManageNvccConfig.cmake
 
-```
+```diff
 -list(APPEND GMX_CUDA_NVCC_FLAGS "${CMAKE_CXX17_STANDARD_COMPILE_OPTION}")
 +list(APPEND GMX_CUDA_NVCC_FLAGS "${CMAKE_CUDA17_STANDARD_COMPILE_OPTION}")
 ```
 then
-```
+```diff
 -gmx_add_nvcc_flag_if_supported(GMX_CUDA_NVCC_FLAGS NVCC_HAS_USE_FAST_MATH -use_fast_math)
 +gmx_add_nvcc_flag_if_supported(GMX_CUDA_NVCC_FLAGS NVCC_HAS_USE_FAST_MATH -use_fast_math -std=c++17)
 ```
 2. ./Cmakelist
 In the first line (you can below the annotation )
-```
-set(CMAKE_POLICY_DEFAULT_CMP0091 NEW)
-set(CMAKE_POLICY_DEFAULT_CMP NEW)
-cmake_policy(SET CMP0091 NEW)
+```diff
++set(CMAKE_POLICY_DEFAULT_CMP0091 NEW)
++set(CMAKE_POLICY_DEFAULT_CMP NEW)
++cmake_policy(SET CMP0091 NEW)
 ```
 Then， under 
 ```
@@ -42,11 +42,11 @@ project(Gromacs VERSION 2024.6)
 ```
 add
 ```
-if(MSVC)
-    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-    string(REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
-    string(REPLACE "/MDd" "/MTd" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
-endif()
++if(MSVC)
++    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
++    string(REPLACE "/MD" "/MT" CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
++    string(REPLACE "/MDd" "/MTd" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
++endif()
 ```
 
 *C. Compile gmx 2024.6*
