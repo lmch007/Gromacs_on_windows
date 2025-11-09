@@ -24,7 +24,7 @@ cmake --build . --target INSTALL --config Release
 -list(APPEND GMX_CUDA_NVCC_FLAGS "${CMAKE_CXX17_STANDARD_COMPILE_OPTION}")
 +list(APPEND GMX_CUDA_NVCC_FLAGS "${CMAKE_CUDA17_STANDARD_COMPILE_OPTION}")
 ```
-then
+Then
 ```diff
 -gmx_add_nvcc_flag_if_supported(GMX_CUDA_NVCC_FLAGS NVCC_HAS_USE_FAST_MATH -use_fast_math)
 +gmx_add_nvcc_flag_if_supported(GMX_CUDA_NVCC_FLAGS NVCC_HAS_USE_FAST_MATH -use_fast_math -std=c++17)
@@ -43,7 +43,7 @@ Then, under
 ```cmake
 project(Gromacs VERSION 2024.6)
 ```
-add
+Add
 ```diff
 +if(MSVC)
 +    set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
