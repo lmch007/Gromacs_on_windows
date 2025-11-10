@@ -3,7 +3,8 @@
 
 
 **A pre-built native version of GROMACS 2024.6 GPU for Windows system users.**
-**NVIDIA 50-series GPUs are not supported (CUDA≥12.8).**
+
+**NVIDIA 50-series GPUs are not supported (CUDA needs ≥12.8).**
 
 Built with CMake (generator: Visual Studio 17 2022, MSVC toolset), NVIDIA CUDA Toolkit 11.8, and FFTW 3.3.10.
 
