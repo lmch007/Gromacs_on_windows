@@ -3,6 +3,7 @@
 
 
 **A pre-built native version of GROMACS 2024.6 GPU for Windows system users.**
+**NVIDIA 50-series GPUs are not supported (CUDA≥12.8).**
 
 Built with CMake (generator: Visual Studio 17 2022, MSVC toolset), NVIDIA CUDA Toolkit 11.8, and FFTW 3.3.10.
 
@@ -17,8 +18,6 @@ cmake . -DCMAKE_INSTALL_PREFIX=XXX -DENABLE_SSE2=ON -DENABLE_AVX=ON -DENABLE_AVX
 cmake --build . --target INSTALL --config Release
 ```
 *B. Modify the source code*
-
-**WARNING: To pass the MSVC compiler check, _some code is changed_.**
 
 ### 1.&emsp;  ./cmake/gmxManageNvccConfig.cmake
 
